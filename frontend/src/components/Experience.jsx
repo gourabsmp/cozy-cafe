@@ -23,10 +23,10 @@ export default function Experience() {
   return (
     <section id="experience" className="section-padding bg-[#fffaf4] relative">
       <div className="container">
-        <div className="text-center mb-12 md:mb-14">
+        <div className="section-header">
           <span className="section-label">More than coffee</span>
           <h2 className="section-title">Made for good vibes</h2>
-          <p className="max-w-2xl mx-auto text-cafe-muted text-base md:text-lg leading-relaxed mt-4">
+          <p className="text-cafe-muted text-base md:text-lg leading-relaxed">
             A cozy place for coffee, food, work, and relaxed moments.
           </p>
         </div>

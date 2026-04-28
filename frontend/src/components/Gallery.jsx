@@ -19,10 +19,10 @@ export default function Gallery() {
   return (
     <section id="gallery" className="section-padding bg-[#1a120b] text-white overflow-hidden">
       <div className="container">
-        <div className="text-center mb-12 md:mb-14">
+        <div className="section-header">
           <span className="section-label !text-cafe-gold">Gallery</span>
           <h2 className="section-title !text-white">Inside Cozy Cafe</h2>
-          <p className="max-w-2xl mx-auto text-white/70 text-base md:text-lg leading-relaxed mt-4">
+          <p className="text-white/70 text-base md:text-lg leading-relaxed">
             A visual taste of our space, food, and daily coffee rituals.
           </p>
         </div>

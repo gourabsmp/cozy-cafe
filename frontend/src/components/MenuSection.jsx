@@ -95,16 +95,16 @@ export default function MenuSection() {
       <div className="container">
         <div className="mx-auto max-w-7xl">
           <motion.div
-            className="rounded-[30px] border border-cafe-gold/14 bg-white p-6 shadow-[0_18px_42px_rgba(29,18,10,0.05)] lg:p-8"
+            className="mx-auto max-w-5xl rounded-[30px] border border-cafe-gold/14 bg-white px-6 py-7 shadow-[0_18px_42px_rgba(29,18,10,0.05)] lg:px-8 lg:py-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.32 }}
             variants={reveal}
           >
-            <div className="mx-auto max-w-[760px] text-center">
+            <div className="section-header !mb-0 max-w-[42rem]">
               <span className="section-label">Our Menu</span>
-              <h2 className="mt-3 font-serif text-[clamp(2.4rem,5vw,4.75rem)] font-bold leading-[0.95] text-cafe-rich">
+              <h2 className="mt-3 font-serif text-[clamp(2.6rem,7vw,4.6rem)] font-bold leading-[0.96] text-cafe-rich">
                 Crafted with love
               </h2>
               <div className="mx-auto mb-5 mt-4 flex items-center justify-center gap-3 text-cafe-gold">
@@ -112,7 +112,7 @@ export default function MenuSection() {
                 <Coffee size={15} />
                 <span className="h-px w-12 bg-cafe-gold/60" />
               </div>
-              <p className="mx-auto mt-5 max-w-[56ch] text-sm leading-relaxed text-cafe-muted md:text-base">
+              <p className="mx-auto mt-5 max-w-[32rem] text-balance text-sm leading-relaxed text-cafe-muted md:text-base">
                 Handcrafted bites, comforting classics, and cafe favorites made for every mood.
               </p>
             </div>
@@ -128,18 +128,23 @@ export default function MenuSection() {
           >
             <div className="mx-auto max-w-4xl">
               <div className="relative mx-auto mb-4 block md:hidden">
-                <select
-                  value={activeCategory}
-                  onChange={(event) => setActiveCategory(event.target.value)}
-                  className="w-full appearance-none rounded-full border border-cafe-gold/25 bg-[linear-gradient(180deg,#fffdf9_0%,#f8efe1_100%)] px-5 py-3 pr-12 text-sm font-semibold uppercase tracking-[0.16em] text-cafe-rich shadow-[0_14px_28px_rgba(29,18,10,0.08)] outline-none transition-all duration-300 focus:border-cafe-gold"
-                >
-                  {categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown size={18} className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-cafe-gold" />
+                <div className="rounded-[22px] border border-cafe-gold/18 bg-white p-2 shadow-[0_12px_26px_rgba(29,18,10,0.06)]">
+                  <div className="mb-2 flex items-center justify-between px-3 pt-1">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-cafe-gold">Category</span>
+                    <ChevronDown size={16} className="text-cafe-gold" />
+                  </div>
+                  <select
+                    value={activeCategory}
+                    onChange={(event) => setActiveCategory(event.target.value)}
+                    className="w-full appearance-none rounded-[16px] border border-cafe-gold/20 bg-[linear-gradient(180deg,#fffdf9_0%,#f8efe1_100%)] px-4 py-3 text-sm font-semibold uppercase tracking-[0.16em] text-cafe-rich outline-none transition-all duration-300 focus:border-cafe-gold"
+                  >
+                    {categories.map((category) => (
+                      <option key={category} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               <div className="hidden items-center justify-center gap-2 border-b border-cafe-gold/14 pb-3 md:flex">

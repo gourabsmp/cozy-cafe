@@ -26,10 +26,10 @@ export default function Reviews() {
   return (
     <section id="reviews" className="section-padding bg-cafe-cream overflow-hidden">
       <div className="container">
-        <div className="text-center mb-14 md:mb-16">
+        <div className="section-header !max-w-[48rem]">
           <span className="section-label">What Our Guests Say</span>
           <h2 className="section-title">Loved by our community</h2>
-          <p className="max-w-[68ch] mx-auto text-cafe-muted mt-5 text-base md:text-lg leading-relaxed">
+          <p className="text-cafe-muted text-base md:text-lg leading-relaxed">
             Honest feedback from regulars who come for the coffee and stay for the atmosphere.
           </p>
         </div>
