@@ -1,4 +1,4 @@
-import { MapPin, Phone, Clock, Mail, ExternalLink } from 'lucide-react';
+﻿import { MapPin, Phone, Clock, Mail, Navigation } from 'lucide-react';
 
 export default function Contact({ cafeInfo }) {
   const phone = cafeInfo?.phone || '+1(56)88289017';
@@ -6,94 +6,122 @@ export default function Contact({ cafeInfo }) {
   const mapQuery = encodeURIComponent(address.replace(/\n/g, ', '));
 
   return (
-    <section id="contact" className="section-padding bg-cafe-cream relative overflow-hidden">
-      {/* Decorative Blur */}
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-cafe-gold/10 blur-[120px] rounded-full -translate-x-1/2 translate-y-1/2" />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <span className="section-label">Connect</span>
-          <h2 className="section-title">Visit the Sanctuary</h2>
-          <p className="max-w-2xl mx-auto text-cafe-muted italic">
-            "Whether it's a quick morning coffee or a quiet afternoon of work, we're here to welcome you."
-          </p>
+    <section id="contact" className="bg-white overflow-hidden">
+      <div className="container py-20">
+        <div className="text-center mb-12 md:mb-14">
+          <span className="section-label">Contact</span>
+          <h2 className="section-title">Visit Cozy Cafe Today</h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-          {/* Left Column: Info & Map */}
-          <div className="space-y-8 flex flex-col">
-            <div className="product-card p-10 bg-white shadow-xl flex-1">
-              <h3 className="text-3xl font-serif font-black text-cafe-espresso mb-10">Cafe Information</h3>
-              <div className="space-y-8">
-                <div className="flex items-start gap-6 group">
-                  <div className="w-12 h-12 rounded-xl bg-cafe-gold/10 flex items-center justify-center text-cafe-gold transition-all duration-500 group-hover:bg-cafe-gold group-hover:text-white">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-black text-cafe-espresso text-sm uppercase tracking-[0.2em] mb-2">Our Location</h4>
-                    <p className="text-cafe-muted leading-relaxed whitespace-pre-line font-medium text-sm">{address}</p>
-                  </div>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <article className="rounded-2xl bg-[#fffdf8] border border-cafe-gold/20 shadow-[0_18px_38px_rgba(30,20,12,0.10)] p-8">
+            <h3 className="text-3xl font-serif font-bold text-cafe-espresso mb-2">Visit Cozy Cafe</h3>
+            <p className="text-cafe-muted text-base leading-relaxed mb-8">
+              Come experience fresh coffee and warm vibes in Cadillac.
+            </p>
 
-                <div className="flex items-start gap-6 group">
-                  <div className="w-12 h-12 rounded-xl bg-cafe-gold/10 flex items-center justify-center text-cafe-gold transition-all duration-500 group-hover:bg-cafe-gold group-hover:text-white">
-                    <Phone size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-black text-cafe-espresso text-sm uppercase tracking-[0.2em] mb-2">Direct Line</h4>
-                    <a href={`tel:${phone}`} className="text-cafe-muted text-lg font-serif italic hover:text-cafe-gold transition-colors interactive">{phone}</a>
-                  </div>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-full bg-cafe-gold/15 text-cafe-gold flex items-center justify-center shrink-0">
+                  <MapPin size={20} />
                 </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] font-bold text-cafe-gold mb-1">Address</p>
+                  <p className="text-cafe-muted whitespace-pre-line leading-relaxed">{address}</p>
+                </div>
+              </div>
 
-                <div className="flex items-start gap-6 group">
-                  <div className="w-12 h-12 rounded-xl bg-cafe-gold/10 flex items-center justify-center text-cafe-gold transition-all duration-500 group-hover:bg-cafe-gold group-hover:text-white">
-                    <Clock size={20} />
-                  </div>
-                  <div>
-                    <h4 className="font-black text-cafe-espresso text-sm uppercase tracking-[0.2em] mb-2">Hours</h4>
-                    <div className="grid grid-cols-2 gap-x-6 text-sm mt-2">
-                      <span className="text-cafe-muted">Mon - Fri</span>
-                      <span className="text-cafe-espresso font-bold">7am - 8pm</span>
-                      <span className="text-cafe-muted">Sat - Sun</span>
-                      <span className="text-cafe-espresso font-bold">8am - 9pm</span>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-full bg-cafe-gold/15 text-cafe-gold flex items-center justify-center shrink-0">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] font-bold text-cafe-gold mb-1">Phone</p>
+                  <a href={`tel:${phone}`} className="text-cafe-espresso font-semibold hover:text-cafe-gold transition-colors">
+                    {phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-11 h-11 rounded-full bg-cafe-gold/15 text-cafe-gold flex items-center justify-center shrink-0">
+                  <Clock size={20} />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] font-bold text-cafe-gold mb-1">Hours</p>
+                  <p className="text-cafe-muted text-sm">Mon-Fri: <span className="text-cafe-espresso font-semibold">7am-8pm</span></p>
+                  <p className="text-cafe-muted text-sm">Sat-Sun: <span className="text-cafe-espresso font-semibold">8am-9pm</span></p>
                 </div>
               </div>
             </div>
 
-            <div className="h-64 w-full rounded-[2rem] overflow-hidden border border-cafe-gold/20 shadow-xl relative">
-              <iframe
-                title="Cozy Cafe Location"
-                src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-                className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-1000"
-                loading="lazy"
-              />
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <a
+                href={`tel:${phone}`}
+                className="btn-premium bg-gradient-to-r from-[#d4a843] to-[#f0d48a] text-cafe-espresso justify-center py-3.5 shadow-[0_12px_30px_rgba(212,168,67,0.35)] hover:shadow-[0_16px_34px_rgba(212,168,67,0.45)]"
+              >
+                <Phone size={18} /> Call Now
+              </a>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-premium border border-cafe-gold text-cafe-espresso justify-center py-3.5 hover:bg-cafe-gold hover:text-cafe-espresso"
+              >
+                <Navigation size={18} /> Get Directions
+              </a>
             </div>
-          </div>
+          </article>
 
-          {/* Right Column: Form */}
-          <div className="product-card p-10 bg-white shadow-2xl flex flex-col justify-center border border-cafe-gold/10">
-            <h3 className="text-3xl font-serif font-black text-cafe-espresso mb-10 text-center">Send a Message</h3>
-            <form className="space-y-8">
-              <div className="input-group">
-                <input id="name" type="text" placeholder=" " required />
-                <label htmlFor="name">Full Name</label>
+          <article className="rounded-2xl bg-white border border-cafe-gold/20 shadow-[0_18px_38px_rgba(30,20,12,0.10)] overflow-hidden">
+            <div className="p-5 md:p-6 pb-0">
+              <div className="relative h-64 rounded-2xl border border-cafe-gold/20 overflow-hidden group">
+                <iframe
+                  title="Cozy Cafe Location"
+                  src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-cafe-espresso/35 to-transparent transition-opacity duration-300 group-hover:opacity-0 pointer-events-none" />
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-3 right-3 btn-premium bg-white/85 text-cafe-espresso px-4 py-2 text-xs border border-white/70 hover:bg-white"
+                >
+                  Open in Google Maps
+                </a>
               </div>
-              <div className="input-group">
-                <input id="email" type="email" placeholder=" " required />
-                <label htmlFor="email">Email Address</label>
-              </div>
-              <div className="input-group">
-                <textarea id="message" rows={5} placeholder=" " required></textarea>
-                <label htmlFor="message">Your Message</label>
-              </div>
-              <button type="submit" className="btn-premium btn-premium-gold w-full justify-center py-5 text-lg interactive">
-                <Mail size={20} /> Dispatch Message
-              </button>
-            </form>
-          </div>
+            </div>
+
+            <div className="p-6 md:p-7">
+              <h3 className="text-2xl font-serif font-bold text-cafe-espresso mb-5 text-center">Send a Message</h3>
+              <form className="space-y-4">
+                <div className="input-group">
+                  <input id="name" type="text" placeholder=" " required />
+                  <label htmlFor="name">Name</label>
+                </div>
+                <div className="input-group">
+                  <input id="email" type="email" placeholder=" " required />
+                  <label htmlFor="email">Email</label>
+                </div>
+                <div className="input-group">
+                  <input id="phone" type="tel" placeholder=" " />
+                  <label htmlFor="phone">Phone</label>
+                </div>
+                <div className="input-group">
+                  <textarea id="message" rows={4} placeholder=" " required></textarea>
+                  <label htmlFor="message">Message</label>
+                </div>
+                <button
+                  type="submit"
+                  className="btn-premium bg-gradient-to-r from-[#d4a843] to-[#f0d48a] text-cafe-espresso w-full justify-center py-3.5 shadow-[0_12px_30px_rgba(212,168,67,0.35)] hover:shadow-[0_16px_34px_rgba(212,168,67,0.45)]"
+                >
+                  <Mail size={18} /> Submit Message
+                </button>
+              </form>
+            </div>
+          </article>
         </div>
       </div>
     </section>

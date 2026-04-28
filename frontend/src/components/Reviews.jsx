@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+﻿import { useRef } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCafe } from '../context/CafeContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,10 +9,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 const fallbackReviews = [
-  { id: 'f1', author: 'Sarah Mitchell', rating: 5, text: 'Cozy Cafe is my absolute sanctuary. The atmosphere is consistently warm, the baristas are experts, and the coffee quality is unrivaled in Cadillac.' },
-  { id: 'f2', author: 'James Thorne', rating: 5, text: 'A truly premium experience. From the artisanal pastries to the high-speed fiber internet, it is the perfect place to focus and indulge.' },
-  { id: 'f3', author: 'Emily Rivera', rating: 5, text: 'The attention to detail here is incredible. The pancake stack is a work of art, and the vibe is exactly what I need for my morning routine.' },
-  { id: 'f4', author: 'David Lowery', rating: 5, text: 'Finally, a cafe that understands the importance of both quality coffee and a chill ambiance. This place is a gem!' }
+  { id: 'f1', author: 'Sarah M.', rating: 5, text: 'Cozy Cafe is my go-to spot! The coffee is amazing and the vibe is perfect for studying or just relaxing.' },
+  { id: 'f2', author: 'James T.', rating: 5, text: 'The best pastries in Cadillac! The staff is friendly and the atmosphere makes you want to stay all day.' },
+  { id: 'f3', author: 'Emily R.', rating: 5, text: 'Super cozy place with great WiFi and delicious food. Highly recommend the pancake stack!' },
+  { id: 'f4', author: 'David L.', rating: 5, text: 'Love the chill ambience and quality coffee. Cozy Cafe never disappoints!' }
 ];
 
 export default function Reviews() {
@@ -25,66 +25,59 @@ export default function Reviews() {
 
   return (
     <section id="reviews" className="section-padding bg-cafe-cream overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="section-label">Testimonials</span>
-          <h2 className="section-title">Echoes of Delight</h2>
-          <div className="gold-divider mx-auto" />
-          <p className="max-w-2xl mx-auto text-cafe-muted italic font-medium">
-            "We take immense pride in the community we've built, one cup at a time."
+      <div className="container">
+        <div className="text-center mb-14 md:mb-16">
+          <span className="section-label">What Our Guests Say</span>
+          <h2 className="section-title">Loved by our community</h2>
+          <p className="max-w-[68ch] mx-auto text-cafe-muted mt-5 text-base md:text-lg leading-relaxed">
+            Honest feedback from regulars who come for the coffee and stay for the atmosphere.
           </p>
         </div>
 
         <div className="relative group">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={30}
-            slidesPerView={1}
-            loop={true}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            spaceBetween={20}
+            slidesPerView={1.02}
+            loop
+            autoplay={{ delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true }}
             pagination={{ clickable: true, el: '.reviews-pagination' }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
             onBeforeInit={(swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
               swiper.params.navigation.nextEl = nextRef.current;
             }}
             breakpoints={{
-              768: { slidesPerView: 2 },
-              1280: { slidesPerView: 3 }
+              481: { slidesPerView: 1.12, spaceBetween: 16 },
+              768: { slidesPerView: 2, spaceBetween: 20 },
+              1200: { slidesPerView: 3, spaceBetween: 24 }
             }}
-            className="pb-20 !overflow-visible"
+            className="pb-14 !overflow-visible"
           >
             {sourceReviews.map((review) => (
-              <SwiperSlide key={review.id}>
-                <article className="product-card p-10 h-full flex flex-col relative bg-white border border-cafe-gold/10 hover:border-cafe-gold/30 interactive">
-                  <Quote className="absolute top-8 right-10 text-cafe-gold/20" size={64} />
-                  
-                  <div className="flex gap-1 mb-8">
+              <SwiperSlide key={review.id} className="h-auto">
+                <article className="product-card h-full p-6 md:p-7 flex flex-col relative bg-white border border-cafe-gold/15 hover:border-cafe-gold/35 interactive">
+                  <Quote className="absolute top-5 right-5 text-cafe-gold/20" size={42} />
+
+                  <div className="flex gap-1.5 mb-4">
                     {[...Array(5)].map((_, index) => (
-                      <Star 
-                        key={index} 
-                        size={18} 
-                        fill={index < review.rating ? '#D4A843' : 'transparent'} 
-                        className={index < review.rating ? 'text-cafe-gold' : 'text-cafe-gold/20'} 
+                      <Star
+                        key={index}
+                        size={15}
+                        fill={index < review.rating ? '#D4A843' : 'transparent'}
+                        className={index < review.rating ? 'text-cafe-gold' : 'text-cafe-gold/25'}
                       />
                     ))}
                   </div>
 
-                  <p className="text-cafe-espresso text-xl font-serif leading-relaxed italic mb-10 flex-1">
-                    "{review.text}"
-                  </p>
+                  <p className="text-cafe-espresso text-[0.96rem] md:text-base leading-relaxed mb-6 flex-1">“{review.text}”</p>
 
-                  <div className="flex items-center gap-5 mt-auto">
-                    <div className="w-14 h-14 rounded-full bg-cafe-espresso flex items-center justify-center text-cafe-gold font-black text-xl shadow-lg">
+                  <div className="flex items-center gap-3.5 mt-auto pt-4 border-t border-cafe-gold/15">
+                    <div className="w-11 h-11 rounded-full bg-cafe-espresso flex items-center justify-center text-cafe-gold font-black text-base shadow-lg">
                       {review.author.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="font-black text-cafe-espresso text-lg tracking-tight">{review.author}</h4>
-                      <span className="text-[10px] text-cafe-gold font-black uppercase tracking-[0.2em]">Verified Aficionado</span>
+                      <h4 className="font-black text-cafe-espresso text-[0.98rem] tracking-tight">{review.author}</h4>
+                      <span className="text-[10px] text-cafe-gold font-black uppercase tracking-[0.18em]">Verified Customer</span>
                     </div>
                   </div>
                 </article>
@@ -92,24 +85,25 @@ export default function Reviews() {
             ))}
           </Swiper>
 
-          {/* Navigation */}
-          <button 
+          <button
             ref={prevRef}
-            className="absolute left-[-2rem] top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full glass border border-cafe-gold/20 flex items-center justify-center text-cafe-espresso hover:bg-cafe-gold transition-all opacity-0 group-hover:opacity-100 hidden xl:flex interactive"
+            className="absolute -left-5 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full glass border border-cafe-gold/25 flex items-center justify-center text-cafe-espresso hover:bg-cafe-gold transition-all opacity-0 group-hover:opacity-100 hidden xl:flex interactive"
+            aria-label="Previous review"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={22} />
           </button>
-          <button 
+          <button
             ref={nextRef}
-            className="absolute right-[-2rem] top-1/2 -translate-y-1/2 z-10 w-14 h-14 rounded-full glass border border-cafe-gold/20 flex items-center justify-center text-cafe-espresso hover:bg-cafe-gold transition-all opacity-0 group-hover:opacity-100 hidden xl:flex interactive"
+            className="absolute -right-5 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full glass border border-cafe-gold/25 flex items-center justify-center text-cafe-espresso hover:bg-cafe-gold transition-all opacity-0 group-hover:opacity-100 hidden xl:flex interactive"
+            aria-label="Next review"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={22} />
           </button>
 
-          {/* Pagination */}
-          <div className="reviews-pagination flex justify-center mt-8 gap-3" />
+          <div className="reviews-pagination flex justify-center mt-5 gap-3" />
         </div>
       </div>
     </section>
   );
 }
+
