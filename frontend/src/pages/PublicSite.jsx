@@ -33,12 +33,15 @@ export default function PublicSite() {
 
   return (
     <div className="relative bg-cafe-cream">
+      <a href="#main-content" className="skip-link">
+        Skip to content
+      </a>
       <div className="grain-overlay" />
       <div id="scroll-progress" />
 
       <Navbar />
 
-      <main>
+      <main id="main-content">
         <Hero />
         <Experience cafeInfo={cafeInfo} />
         <MenuSection />

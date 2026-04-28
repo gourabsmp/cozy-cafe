@@ -2,7 +2,7 @@
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCafe } from '../context/CafeContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -36,11 +36,9 @@ export default function Reviews() {
 
         <div className="relative group">
           <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
+            modules={[Navigation, Pagination]}
             spaceBetween={20}
             slidesPerView={1.02}
-            loop
-            autoplay={{ delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true }}
             pagination={{ clickable: true, el: '.reviews-pagination' }}
             onBeforeInit={(swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
