@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+frontend/.env
+backend/.env
+
+# Build outputs
+dist/
+frontend/dist/
+backend/dist/
+build/
+.next/
+
+# IDEs and Tools
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Vercel
+.vercel
